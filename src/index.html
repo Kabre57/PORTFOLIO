@@ -10,7 +10,7 @@
 	<!-- Font Imports -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 	<!-- Core Style -->
 	<link rel="stylesheet" href="assets/style.css">
@@ -18,8 +18,8 @@
 	<!-- Font Icons -->
 	<link rel="stylesheet" href="assets/css/font-icons.css">
 
-	<!-- Plugins/Components CSS -->
-	<link rel="stylesheet" href="assets/css/swiper.css">
+	<!-- Niche Demos -->
+	<link rel="stylesheet" href="assets/demos/personal/personal.css">
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="assets/css/custom.css">
@@ -27,21 +27,85 @@
 
 	<!-- Document Title
 	============================================= -->
-	<title>CV | THEOGEOFFROY</title>
+	<title>Portfolio | Theo geoffroy</title>
 
-	
 </head>
 
-<body class="stretched">
-  <app-root></app-root>
-	<!-- Go To Top
+<!-- stretched (body)
+============================================= -->
+<body class="stretched" data-smooth-scroll="true" data-custom-cursor="true">
+
+	<!-- Document Wrapper
 	============================================= -->
-	<div id="gotoTop" class="uil uil-angle-up"></div>
+	<div id="wrapper">
+
+
+  <app-root></app-root>
+
+</div><!-- #wrapper end -->
 
 	<!-- JavaScripts
 	============================================= -->
 	<script src="assets/js/plugins.min.js"></script>
 	<script src="assets/js/functions.bundle.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/circletype@2.3.0/dist/circletype.min.js"></script>
+
+	<!-- Parallax Script
+	============================================= -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+	<script>!SEMICOLON.Mobile.any() && skrollr.init({forceHeight: false});</script>
+
+	<!-- Hover Image Animate
+	============================================= -->
+	<script src="assets/demos/jewellery-boutique/js/hover-img-animate.js"></script>
+
+	<script>
+		(function () {
+			var magneticLink = document.querySelectorAll('.magnetic-hover');
+
+			var animateit = function(e) {
+				var elTarget = this.querySelector('div,span'),
+					elParent = e.target,
+					{ offsetX: x, offsetY: y } = e,
+					{ offsetWidth: width, offsetHeight: height } = this,
+					move = 5,
+					xMove = x / width * (move * 2) - move,
+					yMove = y / height * (move * 2) - move;
+
+				xParentMove = xMove * 2;
+				yParentMove = yMove * 2;
+
+				if( elTarget ) {
+					elTarget.style.transform = `translate(${xMove}px, ${yMove}px)`;
+				}
+
+				if( elParent ) {
+					elParent.style.transform = `translate(${xParentMove}px, ${yParentMove}px)`;
+				}
+
+				if (e.type === 'mouseleave') {
+					if( elTarget ) {
+						elTarget.style.transform = '';
+					}
+
+					if( elParent ) {
+						elParent.style.transform = '';
+					}
+				}
+			};
+
+			magneticLink.forEach( function(b) {
+				b.addEventListener('mousemove', animateit);
+				b.addEventListener('mouseleave', animateit);
+			});
+		})();
+
+		// Roating Text SCRIPTS
+		var circleType = new CircleType(
+			document.getElementById("rotated-text")
+		).radius(80);
+	</script>
 
 </body>
 </html>
