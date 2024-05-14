@@ -46,6 +46,14 @@ export class AppComponent implements OnInit {
       .subscribe((event) => {
         this.loadScript("..assets/js/plugins.min.js");
         this.loadScript("..assets/js/functions.bundle.js");
+        this.loadScript("assets/js/plugins.min.js");
+        this.loadScript("assets/js/functions.bundle.js");
+
+
+
+
+
+
         // <!--Jquery JS-- >
     
         this.location = this.router.url;
